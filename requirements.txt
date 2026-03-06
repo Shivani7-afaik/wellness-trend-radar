@@ -1,0 +1,8 @@
+streamlit
+pytrends
+praw
+pandas
+requests
+keybert
+scikit-learn
+youtube-search-python
