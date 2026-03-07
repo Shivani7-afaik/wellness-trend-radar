@@ -213,36 +213,57 @@ def fetch_google_trends():
 import requests
 
 def fetch_reddit_data():
+    import requests
+    import xml.etree.ElementTree as ET
+    from urllib.parse import quote
+
     signals = []
 
     subreddits = [
         "Supplements",
-        "biohackers",
-        "Ayurveda",
+        "Biohackers",
         "Nootropics",
-        "SkincareAddiction"
+        "SkincareAddiction",
+        "Ayurveda"
     ]
 
+    headers = {
+        "User-Agent": "Mozilla/5.0 (compatible; WellnessTrendRadar/1.0)"
+    }
+
     for sub in subreddits:
-        url = f"https://www.reddit.com/r/{sub}/hot.json?limit=25"
-        headers = {"User-agent": "trend-radar"}
+        url = f"https://www.reddit.com/r/{quote(sub)}/new/.rss"
 
         try:
-            res = requests.get(url, headers=headers)
-            data = res.json()
+            response = requests.get(url, headers=headers, timeout=20)
+            response.raise_for_status()
 
-            for post in data["data"]["children"]:
-                p = post["data"]
+            root = ET.fromstring(response.content)
+
+            for item in root.findall(".//item"):
+                title_el = item.find("title")
+                desc_el = item.find("description")
+                link_el = item.find("link")
+
+                title = title_el.text.strip() if title_el is not None and title_el.text else ""
+                description = desc_el.text.strip() if desc_el is not None and desc_el.text else ""
+                link = link_el.text.strip() if link_el is not None and link_el.text else ""
+
+                if not title:
+                    continue
 
                 signals.append({
                     "source": "reddit",
-                    "keyword": p["title"],
-                    "title": p["title"],
-                    "description": p.get("selftext",""),
-                    "score": p["score"]
+                    "keyword": title.lower(),
+                    "title": title,
+                    "description": description[:500],
+                    "score": 20,   # fixed proxy score for RSS posts
+                    "category": guess_category(title + " " + description),
+                    "url": link
                 })
 
-        except:
+        except Exception as e:
+            print(f"Reddit RSS failed for r/{sub}: {e}")
             continue
 
     return signals
@@ -397,4 +418,5 @@ def compile_signals():
     print("data/signals.csv")
 
     return all_signals
+
 
