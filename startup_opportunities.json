@@ -1,0 +1,274 @@
+[
+  {
+    "trend": "brain fog",
+    "trend_score": 0.87,
+    "signals": 7,
+    "sources": [
+      "reddit"
+    ],
+    "market_score": 0.5,
+    "competition_score": 1.0,
+    "velocity_score": 1.0,
+    "opportunity_brief": {
+      "why_it_matters": "'brain fog' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 7,
+        "source_count": 1,
+        "sources": [
+          "reddit"
+        ],
+        "velocity_score": 1.0,
+        "market_score": 0.5,
+        "competition_score": 1.0
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around brain fog.",
+      "category_recommendation": "Potential category: brain fog supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'brain fog' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  },
+  {
+    "trend": "peptides",
+    "trend_score": 0.84,
+    "signals": 6,
+    "sources": [
+      "reddit"
+    ],
+    "market_score": 0.5,
+    "competition_score": 0.8,
+    "velocity_score": 1.0,
+    "opportunity_brief": {
+      "why_it_matters": "'peptides' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 6,
+        "source_count": 1,
+        "sources": [
+          "reddit"
+        ],
+        "velocity_score": 1.0,
+        "market_score": 0.5,
+        "competition_score": 0.8
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around peptides.",
+      "category_recommendation": "Potential category: peptides supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'peptides' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  },
+  {
+    "trend": "creatine",
+    "trend_score": 0.82,
+    "signals": 9,
+    "sources": [
+      "pubmed",
+      "reddit"
+    ],
+    "market_score": 1.0,
+    "competition_score": 1.0,
+    "velocity_score": 1.0,
+    "opportunity_brief": {
+      "why_it_matters": "'creatine' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 9,
+        "source_count": 2,
+        "sources": [
+          "pubmed",
+          "reddit"
+        ],
+        "velocity_score": 1.0,
+        "market_score": 1.0,
+        "competition_score": 1.0
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around creatine.",
+      "category_recommendation": "Potential category: creatine supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'creatine' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  },
+  {
+    "trend": "magnesium glycinate",
+    "trend_score": 0.82,
+    "signals": 3,
+    "sources": [
+      "reddit"
+    ],
+    "market_score": 1.0,
+    "competition_score": 0.8,
+    "velocity_score": 0.6,
+    "opportunity_brief": {
+      "why_it_matters": "'magnesium glycinate' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 3,
+        "source_count": 1,
+        "sources": [
+          "reddit"
+        ],
+        "velocity_score": 0.6,
+        "market_score": 1.0,
+        "competition_score": 0.8
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around magnesium glycinate.",
+      "category_recommendation": "Potential category: magnesium glycinate supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'magnesium glycinate' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  },
+  {
+    "trend": "fatigue",
+    "trend_score": 0.81,
+    "signals": 8,
+    "sources": [
+      "reddit"
+    ],
+    "market_score": 0.5,
+    "competition_score": 0.6,
+    "velocity_score": 1.0,
+    "opportunity_brief": {
+      "why_it_matters": "'fatigue' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 8,
+        "source_count": 1,
+        "sources": [
+          "reddit"
+        ],
+        "velocity_score": 1.0,
+        "market_score": 0.5,
+        "competition_score": 0.6
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around fatigue.",
+      "category_recommendation": "Potential category: fatigue supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'fatigue' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  },
+  {
+    "trend": "ayurveda",
+    "trend_score": 0.81,
+    "signals": 7,
+    "sources": [
+      "reddit"
+    ],
+    "market_score": 0.5,
+    "competition_score": 0.6,
+    "velocity_score": 1.0,
+    "opportunity_brief": {
+      "why_it_matters": "'ayurveda' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 7,
+        "source_count": 1,
+        "sources": [
+          "reddit"
+        ],
+        "velocity_score": 1.0,
+        "market_score": 0.5,
+        "competition_score": 0.6
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around ayurveda.",
+      "category_recommendation": "Potential category: ayurveda supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'ayurveda' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  },
+  {
+    "trend": "longevity",
+    "trend_score": 0.81,
+    "signals": 4,
+    "sources": [
+      "reddit"
+    ],
+    "market_score": 0.5,
+    "competition_score": 1.0,
+    "velocity_score": 0.8,
+    "opportunity_brief": {
+      "why_it_matters": "'longevity' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 4,
+        "source_count": 1,
+        "sources": [
+          "reddit"
+        ],
+        "velocity_score": 0.8,
+        "market_score": 0.5,
+        "competition_score": 1.0
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around longevity.",
+      "category_recommendation": "Potential category: longevity supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'longevity' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  },
+  {
+    "trend": "l-theanine",
+    "trend_score": 0.81,
+    "signals": 4,
+    "sources": [
+      "reddit"
+    ],
+    "market_score": 0.5,
+    "competition_score": 1.0,
+    "velocity_score": 0.8,
+    "opportunity_brief": {
+      "why_it_matters": "'l-theanine' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 4,
+        "source_count": 1,
+        "sources": [
+          "reddit"
+        ],
+        "velocity_score": 0.8,
+        "market_score": 0.5,
+        "competition_score": 1.0
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around l-theanine.",
+      "category_recommendation": "Potential category: l-theanine supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'l-theanine' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  },
+  {
+    "trend": "taurine",
+    "trend_score": 0.81,
+    "signals": 4,
+    "sources": [
+      "reddit"
+    ],
+    "market_score": 0.5,
+    "competition_score": 1.0,
+    "velocity_score": 0.8,
+    "opportunity_brief": {
+      "why_it_matters": "'taurine' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 4,
+        "source_count": 1,
+        "sources": [
+          "reddit"
+        ],
+        "velocity_score": 0.8,
+        "market_score": 0.5,
+        "competition_score": 1.0
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around taurine.",
+      "category_recommendation": "Potential category: taurine supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'taurine' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  },
+  {
+    "trend": "nootropics",
+    "trend_score": 0.78,
+    "signals": 7,
+    "sources": [
+      "reddit"
+    ],
+    "market_score": 0.5,
+    "competition_score": 0.4,
+    "velocity_score": 1.0,
+    "opportunity_brief": {
+      "why_it_matters": "'nootropics' is appearing repeatedly in wellness discussions and shows early signal momentum.",
+      "evidence": {
+        "signals_detected": 7,
+        "source_count": 1,
+        "sources": [
+          "reddit"
+        ],
+        "velocity_score": 1.0,
+        "market_score": 0.5,
+        "competition_score": 0.4
+      },
+      "product_recommendation": "Explore a D2C product or content-led wellness offering around nootropics.",
+      "category_recommendation": "Potential category: nootropics supplements / functional wellness product.",
+      "founder_action": "Validate demand for 'nootropics' in India using Amazon, Google Trends, and YouTube before launching."
+    }
+  }
+]

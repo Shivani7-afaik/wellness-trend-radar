@@ -1,0 +1,47 @@
+[
+  {
+    "trend": "wellness",
+    "trend_score": 100.0,
+    "engagement": 129200,
+    "opportunity": {
+      "product_ideas": [
+        "wellness supplements",
+        "wellness functional beverage",
+        "wellness wellness routine program"
+      ],
+      "target_market": "Health-conscious consumers",
+      "business_model": "Direct-to-consumer wellness brand",
+      "why_now": "Online conversations and engagement around 'wellness' are increasing."
+    }
+  },
+  {
+    "trend": "health",
+    "trend_score": 100.0,
+    "engagement": 115920,
+    "opportunity": {
+      "product_ideas": [
+        "health supplements",
+        "health functional beverage",
+        "health wellness routine program"
+      ],
+      "target_market": "Health-conscious consumers",
+      "business_model": "Direct-to-consumer wellness brand",
+      "why_now": "Online conversations and engagement around 'health' are increasing."
+    }
+  },
+  {
+    "trend": "fitness",
+    "trend_score": 100.0,
+    "engagement": 29970,
+    "opportunity": {
+      "product_ideas": [
+        "fitness supplements",
+        "fitness functional beverage",
+        "fitness wellness routine program"
+      ],
+      "target_market": "Health-conscious consumers",
+      "business_model": "Direct-to-consumer wellness brand",
+      "why_now": "Online conversations and engagement around 'fitness' are increasing."
+    }
+  }
+]

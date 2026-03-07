@@ -1,0 +1,153 @@
+[
+  {
+    "keyword": "brain fog",
+    "signals": 7,
+    "sources": [
+      "reddit"
+    ],
+    "total_score": 124,
+    "trend_score": 0.87,
+    "market_score": 0.5,
+    "competition_score": 1.0,
+    "velocity_score": 1.0,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "Already trending"
+  },
+  {
+    "keyword": "peptides",
+    "signals": 6,
+    "sources": [
+      "reddit"
+    ],
+    "total_score": 49,
+    "trend_score": 0.84,
+    "market_score": 0.5,
+    "competition_score": 0.8,
+    "velocity_score": 1.0,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "3-6 months"
+  },
+  {
+    "keyword": "creatine",
+    "signals": 9,
+    "sources": [
+      "pubmed",
+      "reddit"
+    ],
+    "total_score": 334,
+    "trend_score": 0.82,
+    "market_score": 1.0,
+    "competition_score": 1.0,
+    "velocity_score": 1.0,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "Already trending"
+  },
+  {
+    "keyword": "magnesium glycinate",
+    "signals": 3,
+    "sources": [
+      "reddit"
+    ],
+    "total_score": 103,
+    "trend_score": 0.82,
+    "market_score": 1.0,
+    "competition_score": 0.8,
+    "velocity_score": 0.6,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "6-12 months"
+  },
+  {
+    "keyword": "fatigue",
+    "signals": 8,
+    "sources": [
+      "reddit"
+    ],
+    "total_score": 131,
+    "trend_score": 0.81,
+    "market_score": 0.5,
+    "competition_score": 0.6,
+    "velocity_score": 1.0,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "Already trending"
+  },
+  {
+    "keyword": "ayurveda",
+    "signals": 7,
+    "sources": [
+      "reddit"
+    ],
+    "total_score": 20,
+    "trend_score": 0.81,
+    "market_score": 0.5,
+    "competition_score": 0.6,
+    "velocity_score": 1.0,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "Already trending"
+  },
+  {
+    "keyword": "longevity",
+    "signals": 4,
+    "sources": [
+      "reddit"
+    ],
+    "total_score": 85,
+    "trend_score": 0.81,
+    "market_score": 0.5,
+    "competition_score": 1.0,
+    "velocity_score": 0.8,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "3-6 months"
+  },
+  {
+    "keyword": "l-theanine",
+    "signals": 4,
+    "sources": [
+      "reddit"
+    ],
+    "total_score": 32,
+    "trend_score": 0.81,
+    "market_score": 0.5,
+    "competition_score": 1.0,
+    "velocity_score": 0.8,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "3-6 months"
+  },
+  {
+    "keyword": "taurine",
+    "signals": 4,
+    "sources": [
+      "reddit"
+    ],
+    "total_score": 13,
+    "trend_score": 0.81,
+    "market_score": 0.5,
+    "competition_score": 1.0,
+    "velocity_score": 0.8,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "3-6 months"
+  },
+  {
+    "keyword": "nootropics",
+    "signals": 7,
+    "sources": [
+      "reddit"
+    ],
+    "total_score": 687,
+    "trend_score": 0.78,
+    "market_score": 0.5,
+    "competition_score": 0.4,
+    "velocity_score": 1.0,
+    "google_validation_score": 0.6,
+    "fad_penalty": 0,
+    "time_to_mainstream": "Already trending"
+  }
+]
