@@ -1,104 +1,1041 @@
 
-    <html>
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Wellness Trend Radar</title>
         <style>
-            body {font-family: Arial; margin:40px;}
-            h1 {color:#333;}
-            .trend {border:1px solid #ddd; padding:20px; margin-bottom:20px; border-radius:8px;}
-            .score {font-weight:bold; color:#2c7;}
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                background: #f6f8fb;
+                color: #1f2937;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 32px 20px 60px;
+            }
+
+            .hero {
+                background: linear-gradient(135deg, #0f172a, #1e293b 55%, #0ea5a4);
+                color: white;
+                padding: 36px;
+                border-radius: 20px;
+                margin-bottom: 28px;
+                box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+            }
+
+            .hero h1 {
+                margin: 0 0 10px;
+                font-size: 34px;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                margin: 6px 0;
+                font-size: 15px;
+                color: rgba(255,255,255,0.9);
+            }
+
+            .summary-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 16px;
+                margin: 24px 0 34px;
+            }
+
+            .summary-card {
+                background: white;
+                border-radius: 16px;
+                padding: 20px;
+                box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+                border: 1px solid #e5e7eb;
+            }
+
+            .summary-label {
+                font-size: 13px;
+                color: #6b7280;
+                margin-bottom: 8px;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+            }
+
+            .summary-value {
+                font-size: 28px;
+                font-weight: 700;
+                color: #111827;
+            }
+
+            .summary-sub {
+                margin-top: 8px;
+                font-size: 13px;
+                color: #6b7280;
+            }
+
+            .section-title {
+                font-size: 24px;
+                font-weight: 700;
+                margin: 10px 0 18px;
+                color: #111827;
+            }
+
+            .trend-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 20px;
+            }
+
+            .trend-card {
+                background: white;
+                border-radius: 18px;
+                padding: 22px;
+                box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+                border: 1px solid #e5e7eb;
+                position: relative;
+            }
+
+            .rank {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                background: #111827;
+                color: white;
+                font-size: 12px;
+                font-weight: 700;
+                padding: 6px 10px;
+                border-radius: 999px;
+            }
+
+            .trend-title {
+                margin: 0 0 12px;
+                font-size: 24px;
+                color: #0f172a;
+                text-transform: capitalize;
+                padding-right: 70px;
+            }
+
+            .score-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .score-pill {
+                display: inline-block;
+                background: #dcfce7;
+                color: #166534;
+                border-radius: 999px;
+                padding: 8px 14px;
+                font-weight: 700;
+                font-size: 14px;
+            }
+
+            .opportunity-type {
+                display: inline-block;
+                background: #e0f2fe;
+                color: #075985;
+                border-radius: 999px;
+                padding: 8px 12px;
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            .metric-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+                margin: 18px 0;
+            }
+
+            .metric {
+                background: #f8fafc;
+                border: 1px solid #e5e7eb;
+                border-radius: 12px;
+                padding: 12px;
+            }
+
+            .metric .label {
+                font-size: 12px;
+                color: #6b7280;
+                margin-bottom: 6px;
+            }
+
+            .metric .value {
+                font-size: 18px;
+                font-weight: 700;
+                color: #111827;
+            }
+
+            .subsection {
+                margin-top: 16px;
+                padding-top: 14px;
+                border-top: 1px solid #eef2f7;
+            }
+
+            .subsection h3 {
+                margin: 0 0 10px;
+                font-size: 15px;
+                color: #0f172a;
+            }
+
+            .subsection p {
+                margin: 0;
+                font-size: 14px;
+                line-height: 1.6;
+                color: #374151;
+            }
+
+            .badge-row {
+                margin-top: 10px;
+            }
+
+            .badge {
+                display: inline-block;
+                margin: 0 8px 8px 0;
+                padding: 6px 10px;
+                font-size: 12px;
+                font-weight: 700;
+                border-radius: 999px;
+                background: #f1f5f9;
+                color: #334155;
+                border: 1px solid #dbeafe;
+            }
+
+            .evidence-list {
+                margin: 0;
+                padding-left: 18px;
+                color: #374151;
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .footer {
+                margin-top: 36px;
+                padding: 18px 0 0;
+                color: #6b7280;
+                font-size: 13px;
+                border-top: 1px solid #e5e7eb;
+            }
+
+            @media (max-width: 700px) {
+                .trend-title {
+                    font-size: 20px;
+                }
+
+                .hero h1 {
+                    font-size: 28px;
+                }
+
+                .metric-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
         </style>
     </head>
     <body>
-    <h1>Emerging Wellness Trends (India)</h1>
+        <div class="container">
+            <div class="hero">
+                <h1>Wellness Trend Radar</h1>
+                <p>AI-powered scan of emerging wellness signals across digital platforms and research sources.</p>
+                <p><strong>Region:</strong> India</p>
+                <p><strong>Generated:</strong> 08 Mar 2026, 08:31 PM</p>
+            </div>
+
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="summary-label">Top Trends Identified</div>
+                    <div class="summary-value">9</div>
+                    <div class="summary-sub">Highest-potential trends selected for this report</div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-label">Average Trend Score</div>
+                    <div class="summary-value">0.56</div>
+                    <div class="summary-sub">Average signal strength across shortlisted trends</div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-label">Top Data Sources</div>
+                    <div class="summary-value" style="font-size:18px;">reddit (9), pubmed (2)</div>
+                    <div class="summary-sub">Most frequent sources contributing to the report</div>
+                </div>
+            </div>
+
+            <div class="section-title">Top Emerging Wellness Opportunities</div>
+            <div class="trend-grid">
     
-        <div class="trend">
-        <h2>lion's mane</h2>
-        <p class="score">Trend Score: 0.97</p>
-        <p><b>Signals:</b> 6</p>
-        <p><b>Sources:</b> reddit, pubmed</p>
-        <p><b>Why it matters:</b> 'lion's mane' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around lion's mane.</p>
-        </div>
+                <div class="trend-card">
+                    <div class="rank">#1</div>
+                    <h2 class="trend-title">creatine</h2>
+
+                    <div class="score-row">
+                        <span class="score-pill">Trend Score: 0.90</span>
+                        <span class="opportunity-type">D2C product</span>
+                    </div>
+
+                    <div class="badge-row">
+                        <span class='badge'>pubmed</span> <span class='badge'>reddit</span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="label">Signals Detected</div>
+                            <div class="value">5</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Time to Mainstream</div>
+                            <div class="value">3-6 months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Velocity Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Market Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Competition Score</div>
+                            <div class="value">0.80</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Google Validation</div>
+                            <div class="value">0.70</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Source Diversity</div>
+                            <div class="value">0.50</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Engagement Score</div>
+                            <div class="value">0.40</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why it matters</h3>
+                        <p>'creatine' is gaining momentum quickly and may represent an early but fast-rising wellness opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Opportunity recommendation</h3>
+                        <p>Consider building a beginner-friendly creatine brand positioned around strength, recovery, and women-friendly education.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Category recommendation</h3>
+                        <p>Potential category: sports nutrition / performance wellness.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Risk note</h3>
+                        <p>The opportunity looks promising, but execution quality and positioning will determine whether it becomes commercially viable.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Founder action</h3>
+                        <p>Test creator-led content around dosage, myths, and use cases for Indian consumers before building a product page. Also compare whether education-first or product-first positioning gets stronger traction.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Evidence snapshot</h3>
+                        <ul class="evidence-list">
+                            <li><strong>Source count:</strong> 2</li>
+                            <li><strong>Sources:</strong> pubmed, reddit</li>
+                            <li><strong>Signals detected:</strong> 5</li>
+                            <li><strong>Trend score:</strong> 0.90</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="trend">
-        <h2>electrolytes</h2>
-        <p class="score">Trend Score: 0.97</p>
-        <p><b>Signals:</b> 6</p>
-        <p><b>Sources:</b> reddit, pubmed</p>
-        <p><b>Why it matters:</b> 'electrolytes' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around electrolytes.</p>
-        </div>
+                <div class="trend-card">
+                    <div class="rank">#2</div>
+                    <h2 class="trend-title">gut health</h2>
+
+                    <div class="score-row">
+                        <span class="score-pill">Trend Score: 0.85</span>
+                        <span class="opportunity-type">D2C product</span>
+                    </div>
+
+                    <div class="badge-row">
+                        <span class='badge'>pubmed</span> <span class='badge'>reddit</span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="label">Signals Detected</div>
+                            <div class="value">3</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Time to Mainstream</div>
+                            <div class="value">6-12 months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Velocity Score</div>
+                            <div class="value">0.68</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Market Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Competition Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Google Validation</div>
+                            <div class="value">0.70</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Source Diversity</div>
+                            <div class="value">0.50</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Engagement Score</div>
+                            <div class="value">0.40</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why it matters</h3>
+                        <p>'gut health' is still early, but repeated appearances suggest it could become a breakout wellness theme if momentum continues.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Opportunity recommendation</h3>
+                        <p>Consider building a gut-health brand built around probiotics, education, and digestive wellness habits.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Category recommendation</h3>
+                        <p>Potential category: digestive wellness / functional nutrition.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Risk note</h3>
+                        <p>The opportunity looks promising, but execution quality and positioning will determine whether it becomes commercially viable.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Founder action</h3>
+                        <p>Start with educational content around bloating, digestion, and microbiome awareness, then test product interest. Also compare whether education-first or product-first positioning gets stronger traction.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Evidence snapshot</h3>
+                        <ul class="evidence-list">
+                            <li><strong>Source count:</strong> 2</li>
+                            <li><strong>Sources:</strong> pubmed, reddit</li>
+                            <li><strong>Signals detected:</strong> 3</li>
+                            <li><strong>Trend score:</strong> 0.85</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="trend">
-        <h2>collagen</h2>
-        <p class="score">Trend Score: 0.97</p>
-        <p><b>Signals:</b> 5</p>
-        <p><b>Sources:</b> pubmed</p>
-        <p><b>Why it matters:</b> 'collagen' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around collagen.</p>
-        </div>
+                <div class="trend-card">
+                    <div class="rank">#3</div>
+                    <h2 class="trend-title">longevity</h2>
+
+                    <div class="score-row">
+                        <span class="score-pill">Trend Score: 0.77</span>
+                        <span class="opportunity-type">D2C product</span>
+                    </div>
+
+                    <div class="badge-row">
+                        <span class='badge'>reddit</span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="label">Signals Detected</div>
+                            <div class="value">25</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Time to Mainstream</div>
+                            <div class="value">2-4 months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Velocity Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Market Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Competition Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Google Validation</div>
+                            <div class="value">0.30</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Source Diversity</div>
+                            <div class="value">0.25</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Engagement Score</div>
+                            <div class="value">0.80</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why it matters</h3>
+                        <p>'longevity' is gaining momentum quickly and may represent an early but fast-rising wellness opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Opportunity recommendation</h3>
+                        <p>Consider building a premium longevity-focused wellness brand built around education, supplements, and habit systems.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Category recommendation</h3>
+                        <p>Potential category: preventive wellness / healthy aging.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Risk note</h3>
+                        <p>This signal is still narrow, so it needs more validation before treating it as a major opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Founder action</h3>
+                        <p>Position clearly for the Indian market, since longevity interest is rising but user education is still early. Also compare whether education-first or product-first positioning gets stronger traction.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Evidence snapshot</h3>
+                        <ul class="evidence-list">
+                            <li><strong>Source count:</strong> 1</li>
+                            <li><strong>Sources:</strong> reddit</li>
+                            <li><strong>Signals detected:</strong> 25</li>
+                            <li><strong>Trend score:</strong> 0.77</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="trend">
-        <h2>sea moss</h2>
-        <p class="score">Trend Score: 0.97</p>
-        <p><b>Signals:</b> 5</p>
-        <p><b>Sources:</b> pubmed</p>
-        <p><b>Why it matters:</b> 'sea moss' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around sea moss.</p>
-        </div>
+                <div class="trend-card">
+                    <div class="rank">#4</div>
+                    <h2 class="trend-title">ayurveda</h2>
+
+                    <div class="score-row">
+                        <span class="score-pill">Trend Score: 0.46</span>
+                        <span class="opportunity-type">watchlist trend</span>
+                    </div>
+
+                    <div class="badge-row">
+                        <span class='badge'>reddit</span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="label">Signals Detected</div>
+                            <div class="value">22</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Time to Mainstream</div>
+                            <div class="value">2-4 months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Velocity Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Market Score</div>
+                            <div class="value">0.50</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Competition Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Google Validation</div>
+                            <div class="value">0.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Source Diversity</div>
+                            <div class="value">0.25</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Engagement Score</div>
+                            <div class="value">0.60</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why it matters</h3>
+                        <p>'ayurveda' is gaining momentum quickly and may represent an early but fast-rising wellness opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Opportunity recommendation</h3>
+                        <p>Consider building a D2C or content-led wellness offering around ayurveda.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Category recommendation</h3>
+                        <p>Potential category: ayurveda supplements / functional wellness.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Risk note</h3>
+                        <p>This signal is still narrow, so it needs more validation before treating it as a major opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Founder action</h3>
+                        <p>Validate demand for 'ayurveda' in India using search trends, creator content, and marketplace interest before launching. Use this phase to verify whether the trend has real buying intent or only curiosity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Evidence snapshot</h3>
+                        <ul class="evidence-list">
+                            <li><strong>Source count:</strong> 1</li>
+                            <li><strong>Sources:</strong> reddit</li>
+                            <li><strong>Signals detected:</strong> 22</li>
+                            <li><strong>Trend score:</strong> 0.46</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="trend">
-        <h2>mushroom coffee</h2>
-        <p class="score">Trend Score: 0.97</p>
-        <p><b>Signals:</b> 5</p>
-        <p><b>Sources:</b> pubmed</p>
-        <p><b>Why it matters:</b> 'mushroom coffee' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around mushroom coffee.</p>
-        </div>
+                <div class="trend-card">
+                    <div class="rank">#5</div>
+                    <h2 class="trend-title">l-theanine</h2>
+
+                    <div class="score-row">
+                        <span class="score-pill">Trend Score: 0.46</span>
+                        <span class="opportunity-type">watchlist trend</span>
+                    </div>
+
+                    <div class="badge-row">
+                        <span class='badge'>reddit</span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="label">Signals Detected</div>
+                            <div class="value">4</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Time to Mainstream</div>
+                            <div class="value">3-6 months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Velocity Score</div>
+                            <div class="value">0.80</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Market Score</div>
+                            <div class="value">0.50</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Competition Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Google Validation</div>
+                            <div class="value">0.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Source Diversity</div>
+                            <div class="value">0.25</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Engagement Score</div>
+                            <div class="value">0.25</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why it matters</h3>
+                        <p>'l-theanine' is gaining momentum quickly and may represent an early but fast-rising wellness opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Opportunity recommendation</h3>
+                        <p>Consider building a D2C or content-led wellness offering around l-theanine.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Category recommendation</h3>
+                        <p>Potential category: l-theanine supplements / functional wellness.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Risk note</h3>
+                        <p>This signal is still narrow, so it needs more validation before treating it as a major opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Founder action</h3>
+                        <p>Validate demand for 'l-theanine' in India using search trends, creator content, and marketplace interest before launching. Use this phase to verify whether the trend has real buying intent or only curiosity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Evidence snapshot</h3>
+                        <ul class="evidence-list">
+                            <li><strong>Source count:</strong> 1</li>
+                            <li><strong>Sources:</strong> reddit</li>
+                            <li><strong>Signals detected:</strong> 4</li>
+                            <li><strong>Trend score:</strong> 0.46</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="trend">
-        <h2>ashwagandha</h2>
-        <p class="score">Trend Score: 0.94</p>
-        <p><b>Signals:</b> 6</p>
-        <p><b>Sources:</b> reddit, pubmed</p>
-        <p><b>Why it matters:</b> 'ashwagandha' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around ashwagandha.</p>
-        </div>
+                <div class="trend-card">
+                    <div class="rank">#6</div>
+                    <h2 class="trend-title">victory sunday</h2>
+
+                    <div class="score-row">
+                        <span class="score-pill">Trend Score: 0.41</span>
+                        <span class="opportunity-type">watchlist trend</span>
+                    </div>
+
+                    <div class="badge-row">
+                        <span class='badge'>reddit</span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="label">Signals Detected</div>
+                            <div class="value">3</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Time to Mainstream</div>
+                            <div class="value">6-12 months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Velocity Score</div>
+                            <div class="value">0.60</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Market Score</div>
+                            <div class="value">0.50</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Competition Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Google Validation</div>
+                            <div class="value">0.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Source Diversity</div>
+                            <div class="value">0.25</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Engagement Score</div>
+                            <div class="value">0.25</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why it matters</h3>
+                        <p>'victory sunday' is still early, but repeated appearances suggest it could become a breakout wellness theme if momentum continues.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Opportunity recommendation</h3>
+                        <p>Consider building a D2C or content-led wellness offering around victory sunday.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Category recommendation</h3>
+                        <p>Potential category: victory sunday supplements / functional wellness.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Risk note</h3>
+                        <p>This signal is still narrow, so it needs more validation before treating it as a major opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Founder action</h3>
+                        <p>Validate demand for 'victory sunday' in India using search trends, creator content, and marketplace interest before launching. Use this phase to verify whether the trend has real buying intent or only curiosity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Evidence snapshot</h3>
+                        <ul class="evidence-list">
+                            <li><strong>Source count:</strong> 1</li>
+                            <li><strong>Sources:</strong> reddit</li>
+                            <li><strong>Signals detected:</strong> 3</li>
+                            <li><strong>Trend score:</strong> 0.41</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="trend">
-        <h2>peptides</h2>
-        <p class="score">Trend Score: 0.92</p>
-        <p><b>Signals:</b> 5</p>
-        <p><b>Sources:</b> reddit</p>
-        <p><b>Why it matters:</b> 'peptides' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around peptides.</p>
-        </div>
+                <div class="trend-card">
+                    <div class="rank">#7</div>
+                    <h2 class="trend-title">peptides</h2>
+
+                    <div class="score-row">
+                        <span class="score-pill">Trend Score: 0.41</span>
+                        <span class="opportunity-type">watchlist trend</span>
+                    </div>
+
+                    <div class="badge-row">
+                        <span class='badge'>reddit</span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="label">Signals Detected</div>
+                            <div class="value">3</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Time to Mainstream</div>
+                            <div class="value">6-12 months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Velocity Score</div>
+                            <div class="value">0.60</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Market Score</div>
+                            <div class="value">0.50</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Competition Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Google Validation</div>
+                            <div class="value">0.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Source Diversity</div>
+                            <div class="value">0.25</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Engagement Score</div>
+                            <div class="value">0.25</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why it matters</h3>
+                        <p>'peptides' is still early, but repeated appearances suggest it could become a breakout wellness theme if momentum continues.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Opportunity recommendation</h3>
+                        <p>Consider building a D2C or content-led wellness offering around peptides.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Category recommendation</h3>
+                        <p>Potential category: peptides supplements / functional wellness.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Risk note</h3>
+                        <p>This signal is still narrow, so it needs more validation before treating it as a major opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Founder action</h3>
+                        <p>Validate demand for 'peptides' in India using search trends, creator content, and marketplace interest before launching. Use this phase to verify whether the trend has real buying intent or only curiosity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Evidence snapshot</h3>
+                        <ul class="evidence-list">
+                            <li><strong>Source count:</strong> 1</li>
+                            <li><strong>Sources:</strong> reddit</li>
+                            <li><strong>Signals detected:</strong> 3</li>
+                            <li><strong>Trend score:</strong> 0.41</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="trend">
-        <h2>creatine</h2>
-        <p class="score">Trend Score: 0.9</p>
-        <p><b>Signals:</b> 12</p>
-        <p><b>Sources:</b> reddit, pubmed</p>
-        <p><b>Why it matters:</b> 'creatine' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around creatine.</p>
-        </div>
+                <div class="trend-card">
+                    <div class="rank">#8</div>
+                    <h2 class="trend-title">nootropics</h2>
+
+                    <div class="score-row">
+                        <span class="score-pill">Trend Score: 0.40</span>
+                        <span class="opportunity-type">watchlist trend</span>
+                    </div>
+
+                    <div class="badge-row">
+                        <span class='badge'>reddit</span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="label">Signals Detected</div>
+                            <div class="value">9</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Time to Mainstream</div>
+                            <div class="value">2-4 months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Velocity Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Market Score</div>
+                            <div class="value">0.50</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Competition Score</div>
+                            <div class="value">0.80</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Google Validation</div>
+                            <div class="value">0.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Source Diversity</div>
+                            <div class="value">0.25</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Engagement Score</div>
+                            <div class="value">0.40</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why it matters</h3>
+                        <p>'nootropics' is gaining momentum quickly and may represent an early but fast-rising wellness opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Opportunity recommendation</h3>
+                        <p>Consider building a D2C or content-led wellness offering around nootropics.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Category recommendation</h3>
+                        <p>Potential category: nootropics supplements / functional wellness.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Risk note</h3>
+                        <p>This signal is still narrow, so it needs more validation before treating it as a major opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Founder action</h3>
+                        <p>Validate demand for 'nootropics' in India using search trends, creator content, and marketplace interest before launching. Use this phase to verify whether the trend has real buying intent or only curiosity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Evidence snapshot</h3>
+                        <ul class="evidence-list">
+                            <li><strong>Source count:</strong> 1</li>
+                            <li><strong>Sources:</strong> reddit</li>
+                            <li><strong>Signals detected:</strong> 9</li>
+                            <li><strong>Trend score:</strong> 0.40</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="trend">
-        <h2>gut microbiome</h2>
-        <p class="score">Trend Score: 0.87</p>
-        <p><b>Signals:</b> 5</p>
-        <p><b>Sources:</b> pubmed</p>
-        <p><b>Why it matters:</b> 'gut microbiome' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around gut microbiome.</p>
-        </div>
+                <div class="trend-card">
+                    <div class="rank">#9</div>
+                    <h2 class="trend-title">magnesium</h2>
+
+                    <div class="score-row">
+                        <span class="score-pill">Trend Score: 0.38</span>
+                        <span class="opportunity-type">D2C product</span>
+                    </div>
+
+                    <div class="badge-row">
+                        <span class='badge'>reddit</span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="label">Signals Detected</div>
+                            <div class="value">2</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Time to Mainstream</div>
+                            <div class="value">6-12 months</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Velocity Score</div>
+                            <div class="value">0.40</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Market Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Competition Score</div>
+                            <div class="value">1.00</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Google Validation</div>
+                            <div class="value">0.30</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Source Diversity</div>
+                            <div class="value">0.25</div>
+                        </div>
+                        <div class="metric">
+                            <div class="label">Engagement Score</div>
+                            <div class="value">0.10</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why it matters</h3>
+                        <p>'magnesium' is still early, but repeated appearances suggest it could become a breakout wellness theme if momentum continues.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Opportunity recommendation</h3>
+                        <p>Consider building a sleep and stress-support supplement positioned around better recovery and nightly routines.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Category recommendation</h3>
+                        <p>Potential category: sleep wellness / recovery supplements.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Risk note</h3>
+                        <p>This signal is still narrow, so it needs more validation before treating it as a major opportunity.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Founder action</h3>
+                        <p>Validate demand through sleep-focused content, landing pages, and keyword testing around stress, sleep, and recovery. Also compare whether education-first or product-first positioning gets stronger traction.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Evidence snapshot</h3>
+                        <ul class="evidence-list">
+                            <li><strong>Source count:</strong> 1</li>
+                            <li><strong>Sources:</strong> reddit</li>
+                            <li><strong>Signals detected:</strong> 2</li>
+                            <li><strong>Trend score:</strong> 0.38</li>
+                        </ul>
+                    </div>
+                </div>
         
-        <div class="trend">
-        <h2>colostrum immunity</h2>
-        <p class="score">Trend Score: 0.87</p>
-        <p><b>Signals:</b> 5</p>
-        <p><b>Sources:</b> pubmed</p>
-        <p><b>Why it matters:</b> 'colostrum immunity' is appearing repeatedly in wellness discussions and shows early signal momentum.</p>
-        <p><b>Opportunity:</b> Explore a D2C product or content-led wellness offering around colostrum immunity.</p>
+            </div>
+
+            <div class="footer">
+                This report was automatically generated by Wellness Trend Radar. The output is intended for exploration,
+                opportunity scanning, and founder validation rather than medical or financial decision-making.
+            </div>
         </div>
-        </body></html>
+    </body>
+    </html>
+    
