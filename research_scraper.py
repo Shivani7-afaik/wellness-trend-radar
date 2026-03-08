@@ -1,6 +1,13 @@
 import requests
 import xml.etree.ElementTree as ET
 
+try:
+    import certifi
+    _certifi_available = True
+except ImportError:
+    _certifi_available = False
+
+
 PUBMED_TERMS = [
     "creatine cognition",
     "magnesium glycinate sleep",
@@ -38,16 +45,39 @@ def clean_pubmed_keyword(term):
     return term.strip()
 
 
+def make_request(url, params=None, timeout=20):
+    headers = {
+        "User-Agent": "WellnessTrendRadar/1.0 (research scraper)"
+    }
+
+    request_kwargs = {
+        "headers": headers,
+        "params": params,
+        "timeout": timeout,
+    }
+
+    if _certifi_available:
+        request_kwargs["verify"] = certifi.where()
+
+    return requests.get(url, **request_kwargs)
+
+
 def fetch_pubmed_signals():
     signals = []
 
+    base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+
     for term in PUBMED_TERMS:
         try:
-            search_url = (
-                "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
-                f"?db=pubmed&term={term.replace(' ', '+')}&retmax=20&sort=date"
-            )
-            search_response = requests.get(search_url, timeout=15)
+            params = {
+                "db": "pubmed",
+                "term": term,
+                "retmax": 20,
+                "sort": "date",
+                "retmode": "xml"
+            }
+
+            search_response = make_request(base_url, params=params, timeout=20)
             search_response.raise_for_status()
 
             root = ET.fromstring(search_response.content)
@@ -56,6 +86,7 @@ def fetch_pubmed_signals():
             paper_count = len(ids)
 
             if paper_count == 0:
+                print(f"PubMed: 0 papers for '{term}'")
                 continue
 
             keyword = clean_pubmed_keyword(term)
@@ -67,10 +98,24 @@ def fetch_pubmed_signals():
                 "description": f"{paper_count} recent PubMed papers found",
                 "score": min(100, paper_count * 5),
                 "category": "research",
-                "paper_count": paper_count
+                "paper_count": paper_count,
+                "date": "",
+                "url": f"https://pubmed.ncbi.nlm.nih.gov/?term={term.replace(' ', '+')}"
             })
 
-        except Exception:
+            print(f"PubMed: {paper_count} papers for '{term}'")
+
+        except requests.exceptions.SSLError as e:
+            print(f"PubMed SSL error for '{term}': {e}")
+            continue
+        except requests.exceptions.RequestException as e:
+            print(f"PubMed request failed for '{term}': {e}")
+            continue
+        except ET.ParseError as e:
+            print(f"PubMed XML parse failed for '{term}': {e}")
+            continue
+        except Exception as e:
+            print(f"PubMed unexpected error for '{term}': {e}")
             continue
 
     return signals
