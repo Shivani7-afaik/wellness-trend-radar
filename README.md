@@ -1,7 +1,6 @@
 Here is the updated README with all emojis removed.
 
 ---
-
 # Wellness Trend Radar (India 2026)
 
 An AI-powered market intelligence engine that detects emerging health and wellness white-spaces in the Indian market. By triangulating social momentum (Reddit, YouTube, Google Trends) with clinical validation (PubMed Central), the Radar identifies high-potential startup opportunities before they hit the mainstream.
